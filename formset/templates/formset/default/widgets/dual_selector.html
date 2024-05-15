@@ -1,18 +1,18 @@
 {% load translate from i18n %}
 {% spaceless %}
-{% block "select-no-results" %}
+{% block select-no-results %}
 <template class="select-no-results">{% translate "No results found for '${input}'" %}</template>
 {% endblock %}
-{% block "select-extra-styles" %}{% endblock %}
+{% block select-extra-styles %}{% endblock %}
 {% with select_size=widget.attrs.size|default:8 %}
-<div class="{% block "wrapper_classes" %}dj-dual-selector{% endblock %}">
-{% block "left-column" %}
+<div class="{% block wrapper_classes %}dj-dual-selector{% endblock %}">
+{% block left-column %}
 	<div class="left-column">
 		<input type="text" class="dj-exempt-feedback{% if lookup_field_classes %} {{ lookup_field_classes }}{% endif %}" placeholder="{% translate 'Search …' %}" />
 		<select multiple class="dj-exempt-feedback{% if select_classes %} {{ select_classes }}{% endif %}" size="{{ select_size }}"></select>
 	</div>
-{% endblock %}
-{% block "control-panel" %}
+{% endblock left-column %}
+{% block control-panel %}
 	<div class="control-column">
 		<div class="control-panel">
 			{% include "formset/default/buttons/move_all_right.html" %}
@@ -24,7 +24,7 @@
 		</div>
 	</div>
 {% endblock %}
-{% block "right-column" %}
+{% block right-column %}
 	<div class="right-column">
 		<input type="text" class="dj-exempt-feedback{% if lookup_field_classes %} {{ lookup_field_classes }}{% endif %}" placeholder="{% translate 'Search …' %}" />
 	{% if is_sortable %}
@@ -33,7 +33,7 @@
 		<select multiple class="dj-exempt-feedback{% if select_classes %} {{ select_classes }}{% endif %}" size="{{ select_size }}"></select>
 	{% endif %}
 	</div>
-{% endblock %}
+{% endblock right-column %}
 </div>
 {% endwith %}
 <select is="django-dual-selector" name="{{ widget.name }}" {% include "django/forms/widgets/attrs.html" %}>{% for group_name, group_choices, group_index in widget.optgroups %}{% if group_name %}

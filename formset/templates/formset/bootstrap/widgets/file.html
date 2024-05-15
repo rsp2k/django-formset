@@ -1,11 +1,11 @@
 {% extends "formset/default/widgets/file.html" %}
 {% load i18n %}
 
-{% block "choose-file" %}
+{% block choose-file %}
 <button type="button" class="dj-choose-file btn btn-outline-secondary">{% trans "Choose file" %}</button>
-{% endblock %}
+{% endblock choose-file %}
 
-{% block "file-caption" %}
+{% block file-caption %}
 <figcaption>
 	<dl>
 		<dt>{% trans 'Name' %}:</dt>
@@ -18,4 +18,4 @@
 	<a class="dj-delete-file btn btn-warning btn-sm">{% trans "Delete" %}</a>
 	<a class="dj-download-file btn btn-light btn-sm" href="${download_url}" download="${name}">{% trans "Download" %}</a>
 </figcaption>
-{% endblock %}
+{% endblock file-caption %}

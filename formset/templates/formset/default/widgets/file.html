@@ -6,27 +6,27 @@
 		{{ widget.value|json_script:script_id }}
 		{% endwith %}
 	{% endif %}
-	{% block "dropbox" %}
+	{% block dropbox %}
 	<figure class="dj-dropbox"><div class="dj-empty-item"><p>{% trans "Drag file here" %}</p></div></figure>
-	{% endblock %}
-	{% block "controller" %}
+	{% endblock dropbox %}
+	{% block controller %}
 	<div>
-		{% block "choose-file" %}
+		{% block choose-file %}
 		<button type="button" class="dj-choose-file">{% trans "Choose file" %}</button>
-		{% endblock %}
-		{% block "progress-bar" %}
+		{% endblock choose-file %}
+		{% block progress-bar %}
 		<progress max="1" value="0"></progress>
-		{% endblock %}
+		{% endblock progress-bar %}
 	</div>
-	{% endblock %}
+	{% endblock controller %}
 </div>
 
-{% block "dropbox-items" %}
+{% block dropbox-items %}
 <template class="dj-dropbox-items">
-	{% block "file-picture" %}
+	{% block file-picture %}
 	<img src="${thumbnail_url}">
-	{% endblock %}
-	{% block "file-caption" %}
+	{% endblock file-picture %}
+	{% block file-caption %}
 	<figcaption>
 		<dl>
 			<dt>{% trans 'Name' %}:</dt>
@@ -43,8 +43,8 @@
 		<a class="dj-delete-file" href="javascript:void(0);">{% trans "Delete" %}</a>
 		<a class="dj-download-file" href="${download_url}" download="${name}">{% trans "Download" %}</a>
 	</figcaption>
-	{% endblock %}
+	{% endblock file-caption %}
 </template>
-{% endblock %}
+{% endblock dropbox-items %}
 
 {% endspaceless %}
