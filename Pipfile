@@ -12,6 +12,7 @@ playwright = "*"
 beautifulsoup4 = "*"
 coverage = "*"
 django-countries = "*"
+docutils = "*"
 
 [dev-packages]
 
